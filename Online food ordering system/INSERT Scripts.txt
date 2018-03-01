@@ -1,0 +1,498 @@
+﻿Insert Queries
+
+
+Area
+
+
+INSERT INTO area (area_pincode, area_name) VALUES (15, 'Shivranjni     ');
+INSERT INTO area (area_pincode, area_name) VALUES (54, 'Maninagar           ');
+INSERT INTO area (area_pincode, area_name) VALUES (44, 'Prahaladnagar       ');
+INSERT INTO area (area_pincode, area_name) VALUES (10, 'Bopal               ');
+INSERT INTO area (area_pincode, area_name) VALUES (4, 'Kudasan             ');
+INSERT INTO area (area_pincode, area_name) VALUES (16, 'Shahibag            ');
+INSERT INTO area (area_pincode, area_name) VALUES (3, 'Ramdevnagar         ');
+INSERT INTO area (area_pincode, area_name) VALUES (12, 'Paldi               ');
+INSERT INTO area (area_pincode, area_name) VALUES (13, 'Bodakdev            ');
+INSERT INTO area (area_pincode, area_name) VALUES (69, 'Thaltej             ');
+INSERT INTO area (area_pincode, area_name) VALUES (55, 'Gurukul             ');
+INSERT INTO area (area_pincode, area_name) VALUES (78, 'Vastrapur           ');
+
+
+Category
+
+
+INSERT INTO category (category_code, name) VALUES (1, 'starters');
+INSERT INTO category (category_code, name) VALUES (2, 'soups');
+INSERT INTO category (category_code, name) VALUES (4, 'salads');
+INSERT INTO category (category_code, name) VALUES (5, 'desserts');
+INSERT INTO category (category_code, name) VALUES (6, 'beverages and shakes');
+INSERT INTO category (category_code, name) VALUES (3, 'main course');
+
+
+Cuisine
+
+
+INSERT INTO cuisine (res_id, name) VALUES (101, 'North Indian');
+INSERT INTO cuisine (res_id, name) VALUES (101, 'Chinese');
+INSERT INTO cuisine (res_id, name) VALUES (101, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (101, 'Mexican');
+INSERT INTO cuisine (res_id, name) VALUES (102, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (103, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (104, 'Fast Food');
+INSERT INTO cuisine (res_id, name) VALUES (104, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (105, 'Chinese');
+INSERT INTO cuisine (res_id, name) VALUES (105, 'North Indian');
+INSERT INTO cuisine (res_id, name) VALUES (105, 'Fast Food');
+INSERT INTO cuisine (res_id, name) VALUES (106, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (106, 'Mexican');
+INSERT INTO cuisine (res_id, name) VALUES (107, 'North Indian');
+INSERT INTO cuisine (res_id, name) VALUES (107, 'Chinese');
+INSERT INTO cuisine (res_id, name) VALUES (107, 'Continental');
+INSERT INTO cuisine (res_id, name) VALUES (108, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (109, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (109, 'Fast Food');
+INSERT INTO cuisine (res_id, name) VALUES (109, 'Chinese');
+INSERT INTO cuisine (res_id, name) VALUES (110, 'Italian');
+INSERT INTO cuisine (res_id, name) VALUES (110, 'Fast Food');
+
+
+Customer
+
+
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (16, 'Madhurya Sankhla', '201501016@daiict.ac.in', '9292442761', 73, 'shilalekh society', 500, 12);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (21, 'Raj Gamit', '201501021@daiict.ac.in', '9274814550', 41, 'vasant towers', 300, 54);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (22, 'Dev  Patel', '201501022@daiict.ac.in', '9270956095', 66, 'akshardham plaza', 600, 55);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (26, 'Nirmal Renu', '201501026@daiict.ac.in', '9272159247', 4, 'shilalekh society', 800, 4);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (24, 'Hardik Bansal', '201501024@daiict.ac.in', '9236922248', 43, 'vasant towers', 900, 78);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (35, 'Fenil Shah', '201501035@daiict.ac.in', '9231829314', 37, 'akshar apartments', 500, 69);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (38, 'Deep Gamit', '201501038@daiict.ac.in', '9246579836', 96, 'vasant towers', 600, 4);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (19, 'Dhruvil Bhuptani', '201501019@daiict.ac.in', '9274481157', 24, 'akshardham bunglows', 0, 16);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (17, 'Naitik  Dodia', '201501017@daiict.ac.in', '9289236113', 45, 'shilalekh plaza', 700, 13);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (20, 'Ajay Shamla', '201501020@daiict.ac.in', '9283039335', 10, 'neelkanth bunglows', 1200, 44);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (25, 'Harsh Patel', '201501025@daiict.ac.in', '9256096708', 88, 'vaibhav apartments', 600, 3);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (37, 'Karn Vadaliya', '201501037@daiict.ac.in', '9249428293', 73, 'vaibhav apartments', 200, 3);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (36, 'Divyakumar Solanki', '201501036@daiict.ac.in', '9281706135', 75, 'akshar bunglows', 1000, 78);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (18, 'Priyam Vora', '201501018@daiict.ac.in', '9251647953', 79, 'shilalekh bunglows', 1000, 15);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (23, 'Yash Bhansali', '201501023@daiict.ac.in', '9280668946', 93, 'vasant apartments', 1000, 69);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (27, 'Smit Thakkar', '201501027@daiict.ac.in', '9235727628', 28, 'shiv towers', 1000, 10);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (1, 'Parth Doshi', '201501001@daiict.ac.in', '9856374589', 2, 'rambag society', 100, 3);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (2, 'Aashini Soni', '201501002@daiict.ac.in', '7895432615', 54, 'jay yamuna , maniyasa road', 300, 4);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (46, 'Darren Mistry', '201501046@daiict.ac.in', '9246205302', 66, 'shiv apartments', 400, 55);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (4, 'Kritika Somani', '201401004@daiict.ac.in', '9584236547', 12, 'new hospital road', 600, 12);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (5, 'Hemil Shah', '201201052@daiict.ac.in', '9856374589', 2, 'Reliance Chowkdi', 500, 13);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (48, 'Sharvil Solanki', '201501048@daiict.ac.in', '9286944630', 31, 'akshar society', 300, 78);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (7, 'Rushil Shah', 'rushishah@gmail.com', '7858986325', 100, 'Ramdevnagar hospital road', 700, 16);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (8, 'Nishant Mundra', 'nishantsalo@gmail.com', '9128035694', 132, 'soho center', 800, 44);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (10, 'Nikita Verma', 'nikitaj108@gmail.com', '8596278541', 69, 'Daiict road', 1200, 55);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (11, 'Rajat Garg', '201501011@daiict.ac.in', '9270663600', 8, 'vaibhav bunglows', 200, 69);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (12, 'Akash Gajjar', '201501012@daiict.ac.in', '9296087979', 50, 'shiv apartments', 1300, 78);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (13, 'Kirti Tapodhan', '201501013@daiict.ac.in', '9273635436', 74, 'shilalekh apartments', 700, 3);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (14, 'Kush Patel', '201501014@daiict.ac.in', '9255104752', 59, 'vaibhav society', 200, 4);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (15, 'Luv Patel', '201501015@daiict.ac.in', '9274029663', 31, 'akshardham bunglows', 300, 10);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (29, 'Rutvik Joshi', '201501029@daiict.ac.in', '9299205579', 41, 'vaibhav bunglows', 600, 13);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (32, 'KARTIK MUDGAL', '201501032@daiict.ac.in', '9281770493', 8, 'shiv plaza', 800, 44);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (28, 'Manthan Patel', '201501028@daiict.ac.in', '9249179999', 30, 'shilalekh society', 1000, 12);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (41, 'Rahul Patel', '201501041@daiict.ac.in', '9254717949', 77, 'akshardham apartments', 700, 13);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (45, 'Gaurav Bansal', '201501045@daiict.ac.in', '9253438507', 59, 'shivalik society', 0, 54);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (30, 'Hasnain Gandhi', '201501030@daiict.ac.in', '9288273318', 13, 'shivalik society', 1000, 15);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (43, 'Priyangi Chaudhari', '201501043@daiict.ac.in', '9236008898', 21, 'akshar apartments', 800, 16);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (47, 'Umang Parmar', '201501047@daiict.ac.in', '9253988373', 69, 'shiv apartments', 1500, 69);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (49, 'Sravani Kalangi', '201501049@daiict.ac.in', '9258694129', 67, 'akshar plaza', 1300, 3);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (3, 'Karan Thakkar', '201301003@daiict.ac.in', '8569274589', 10, 'Chimanbhai road', 0, 10);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (6, 'Vinayak Dubey', '201301120@daiict.ac.in', '7821496359', 66, 'Police commisioner road', 200, 15);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (44, 'Jeel Prajapati', '201501044@daiict.ac.in', '9295905101', 63, 'neelkanth plaza', 700, 44);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (39, 'Harsh Makwana', '201501039@daiict.ac.in', '9270432480', 29, 'shilalekh apartments', 600, 10);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (40, 'Khushil Mistry', '201501040@daiict.ac.in', '9255664418', 16, 'shivalik bunglows', 700, 12);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (9, 'Megha Desai', 'meghadesai92@gmail.com', '9584236478', 12, 'shivsagar apartments', 100, 54);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (31, 'DHRUV PATEL', '201501031@daiict.ac.in', '9276891338', 34, 'akshardham towers', 0, 16);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (33, 'KAVAN PATEL', '201501033@daiict.ac.in', '9259299126', 51, 'shilalekh society', 100, 54);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (34, 'PATEL BRIJESHKUMAR', '201501034@daiict.ac.in', '9287539961', 65, 'shilalekh plaza', 200, 55);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (42, 'kaustuk rathod', '201501042@daiict.ac.in', '9295279660', 1, 'shilalekh society', 1000, 15);
+INSERT INTO customer (customer_id, name, email, contact_no, house_no, street, cashback_points, area_pincode) VALUES (50, 'Pooja Patel', '201501050@daiict.ac.in', '9240586731', 67, 'akshardham apartments', 1000, 4);
+
+
+Delivery Boy
+
+
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 2, 'Rahul Makwana', '8569232569', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 7, 'Gunadhya Achaval', '9276891338', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 2, 'Shrey Gupta', '9854678546', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 3, 'Dheeraj Gandhi', '9299152000', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 3, 'Om Bajpai', '9247797386', true, 54);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 6, 'Jatayu Sinha', '9274034775', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 4, 'Shackcham Nijasure', '9296305682', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 11, 'Bana Tavade', '9249428293', true, 3);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 12, 'Peeyush Bhatta', '9246579836', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 7, 'Nasatya Harish', '9255664418', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 2, 'Ragunath Bakshi', '9292398943', true, 54);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 3, 'Yash Shah', '8569256978', true, 3);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 3, 'Vineet Gharapure', '9278743258', true, 13);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 5, 'Venkata Devarukhkar', '9282526691', true, 54);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 5, 'Keshav Banahatti', '9236008898', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 5, 'Aryabhata Thakur', '9238134794', true, 54);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 7, 'Mahava Phadatare', '9253438507', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 6, 'Srijan Dongerkerry', '9236119111', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 7, 'Megh Jadhav', '9253988373', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 6, 'Anuraag Bagchi', '9234838187', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 2, 'Siddharth Jadav', '7825632569', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 7, 'Suresh Ray', '9299225182', true, 54);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 3, 'Amitabh Phadanis', '9242168969', true, 4);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 6, 'Kapila Nijasure', '9270432480', true, 4);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 4, 'Jhanda Punja', '9233348574', true, 78);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 5, 'Vasishtha Dhavale', '9255276418', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 2, 'Yash Mehta', '7777732569', true, 54);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 3, 'Ravi Pandey', '9299736853', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 4, 'Narayana Pavagi', '9268738392', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 7, 'Rajendra Bajpai', '9283394527', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 3, 'Acarya Muzumdar', '9234763436', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 6, 'Chanda Divakar', '9288273318', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 5, 'Aman Agarwal', '9290004513', true, 13);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 4, 'Ravi Divakar', '9268436513', true, 13);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 5, 'Aman Ranganekary', '9292258234', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 5, 'Viswamitra Thakre', '9299652211', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 7, 'Ahray Patel', '9257932675', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 7, 'Krishan Vaknis', '9299736853', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 3, 'Abhinav Adwani', '9275971902', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 2, 'Zalim Dheer', '9293731591', true, 13);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 6, 'Waazir Gazdar', '9255192918', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 7, 'Dhuleep Dayal', '9247797386', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 5, 'Purshottama Rao', '9258983835', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 5, 'Chettur Jagatap', '9266160054', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 7, 'Abhishek Jain', '9290004513', false, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 3, 'Roodra Shah', '9258591718', true, 4);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 6, 'Zalim Adwani', '9290004513', true, 4);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 13, 'Rura Seth', '9268436513', true, 13);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 14, 'Abhi Sinha', '9282526691', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 15, 'Manas Pande', '9234838187', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 6, 'Varuni Marwah', '9295905101', true, 78);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 4, 'Ranjan Ojha', '9264712342', false, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 11, 'Chinmay Vivek', '9290004513', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 1, 'Vineet Dhibar', '9288099032', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 1, 'Amish Viswan', '9233899302', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 1, 'Daksh Vajaria', '8596532659', true, 3);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 1, 'Daas Haldar', '9233808922', true, 3);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 2, 'Hala Vaikar', '9246234958', true, 4);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 1, 'Abhishek Mehta', '8569232569', true, 3);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 1, 'Raj Patel', '7569232569', true, 4);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 5, 'Daya Dongerkerry', '9234989097', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 4, 'Ayush Parekh', '9249564983', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 3, 'Dhule Munshi', '9272758592', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 2, 'Chander Rao', '9255192918', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 1, 'Ishwar Rajavade', '9246831210', true, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 12, 'Abhin Kakkad', '9290004513', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 1, 'Rohan Kankaria', '9632578415', true, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 4, 'Nasatya Misra', '9240814298', true, 78);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 1, 'Vikas Sharma', '9260485197', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 1, 'Prashant Soni', '8569232569', true, 78);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 6, 'Chunder Shrivastav', '9234082010', false, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 4, 'Govinda Gulati', '9257590669', true, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 8, 'Sahadeva Adhya', '9281770493', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 8, 'Kanada Nijasure', '9287539961', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 2, 'Rahul Mandalik', '9276748140', false, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 8, 'Jayadeva Mahanta', '9254717949', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (104, 8, 'Dhule Sanyal', '9246205302', true, 3);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 4, 'Gopal Chadda', '9288004475', true, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 6, 'Viswamitra Vad', '9287377849', true, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 8, 'Aman Phadatare', '9286944630', true, 13);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 8, 'Sharya Mukhtar', '9237739859', true, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 8, 'Jayadeva Jagatap', '9258983835', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 8, 'Baibhav Thacker', '9249564983', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 8, 'Sooraj Phadanis', '9296305682', true, 12);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 8, 'Yash Halani', '9290004513', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 4, 'Ayaan Gandhi', '9236412882', true, 15);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 2, 'Chandra Nancy', '9291595333', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 10, 'Prakash Bhatta', '9281706135', true, 69);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 10, 'Vakpati Nambiyar', '9240586731', true, 78);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 10, 'Jatayu Lata', '9272921588', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 10, 'Daksh Shah', '9290004513', true, 78);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (101, 9, 'Keshav Roychaudhuri', '9259299126', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (102, 9, 'Abhinav Patel', '9231829314', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (103, 9, 'Roodra Valimbe', '9295279660', true, 10);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (105, 9, 'Misal Shah', '9258694129', true, 13);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (106, 9, 'Jaswant Phadanis', '9260896806', true, 55);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (107, 9, 'Navin Upandhye', '9233808922', true, 44);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (108, 9, 'Kusika Gazdar', '9290004513', true, 16);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (109, 9, 'Ramesh Patel', '9292258234', true, 4);
+INSERT INTO delivery_boy (res_id, dboy_id, dboy_name, contact_no, isfree, area_pincode) VALUES (110, 9, 'Yash Sharma', '9290004513', true, 54);
+
+
+
+
+
+
+Feedback
+
+
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (101, 1, 3.5, 'Good food at a resonable price');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (105, 1, 3.5, 'Must have:Cholle bhature!');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (102, 3, 3.5, 'Tasty pizzas but a tad costly');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (103, 2, 4.5, 'Best pizzas in the town.Totally worth the cost');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (103, 4, 5.0, 'Cannot get better than this :)');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (104, 5, 4.0, 'Good ambience.Decent food.Shakes not upto the mark.Must try: Cheesy garlic fries');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (105, 2, 3.0, 'Decent food.No ambience');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (101, 23, 3.0, 'Delicious Food');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (101, 36, 1.5, 'Too Oily Food');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (101, 50, 4.5, 'Excellent Service');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (101, 16, 1, 'Not recommended');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (102, 10, 4.5, 'Must Visit');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (102, 5, 3.5, 'Loved Cheese Burst');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (102, 30, 4.5, 'Soft base and must visit');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (102, 15, 1.5, 'Cold and expensive');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (103, 47, 2.5, 'Too Expensive for quality');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (103, 12, 4, 'Loved the ambience and food');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (103, 50, 1.5, 'Poor Service');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (104, 2, 3.5, 'Best teas in the city');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (104, 15, 3, 'Heaven for tea lovers');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (104, 21, 3.5, 'decent café setting');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (105, 41, 4.5, 'Excellent food and ambience');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (106, 10, 3.5, 'white sauce pasta, must try');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (106, 42, 3, 'a little expensive but nice');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (106, 19, 4, 'mouth watering food');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (106, 1, 1, 'hyped and poor service');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (107, 20, 4.5, 'Lovely ambience');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (107, 45, 1.5, 'Poor Service');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (107, 16, 5, 'Must Visit');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (107, 42, 5, 'Exotic food with indian taste');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (107, 1, 4, 'Excellent Service');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (108, 37, 4, 'Best for unlimited meals');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (109, 6, 5, 'Try classic Italian Pizza');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (109, 12, 3, 'Decent food');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (109, 27, 1.5, 'Too crowded ');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (110, 40, 4, 'Best fast food joint in town');
+INSERT INTO feedback (res_id, customer_id, rating, review) VALUES (110, 15, 3.5, 'Try all the pastas and pizzas');
+
+
+Menu
+
+
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 1, 'veg lollypop', 1, 180);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 2, 'spring rolls', 1, 190);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 3, 'veg crispy', 1, 185);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 4, 'manchow', 2, 120);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 5, 'hot and sour', 2, 115);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 6, 'tomato', 2, 110);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 7, 'red sauce pasta', 4, 190);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 8, 'alfredo cheese pasta', 4, 200);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 9, 'mexican hotpot', 3, 350);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 10, 'panner handi', 3, 180);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 11, 'veg kolapuri', 3, 185);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (101, 12, 'butter naan', 3, 50);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (102, 1, 'veg farmhouse', 3, 300);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (102, 2, 'peppy paneer', 3, 350);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (102, 3, 'margerita', 3, 200);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (102, 4, 'garlic bread', 1, 100);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (102, 5, 'tacos', 1, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (103, 1, 'cheesy 7', 3, 800);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (103, 2, 'peri peri pizza', 3, 850);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (103, 3, 'vegi delight', 3, 700);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (103, 4, 'red sauce pasta', 4, 250);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (103, 5, 'nachos', 5, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (104, 1, 'adrak chai', 6, 99);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (104, 2, 'kesar chai', 6, 99);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (104, 3, 'sandwich', 3, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (104, 4, 'green tea', 6, 110);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (104, 5, 'chocolate shake', 6, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 1, 'loaded nachos', 1, 275);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 2, 'hara kabab', 1, 300);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 3, 'sweet corn', 2, 155);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 4, 'spl hot pot', 2, 180);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 5, 'morrocan salad', 4, 250);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 6, 'green salad', 4, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 7, 'oriental sizzler', 3, 475);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 8, 'paneer taka tak', 3, 369);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 9, 'hariyali pulao', 3, 400);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 10, 'garlic naan', 3, 99);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 11, 'tandoori roti', 3, 40);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 12, 'sizzling brownie', 5, 275);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 13, 'butter scotch', 5, 225);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (105, 14, 'fruit overload', 5, 250);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 1, 'Focaccia', 1, 285);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 2, 'Bellasai', 1, 440);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 3, 'Freestate', 1, 530);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 3, 'Chipotle Longer', 1, 89);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 6, 'Alla Arabiata', 3, 540);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 7, 'Pasta Al Ferno', 3, 535);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 8, 'Mozzarella In Carroz', 3, 475);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 9, 'Spuma', 3, 525);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 10, 'Risotto Al ferno', 3, 550);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 11, 'Lasagne Al Verdue', 3, 535);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 9, 'Red Indian/Veggie De', 3, 375);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 5, 'Nachos with cheese s', 1, 325);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 12, 'Burritos', 3, 340);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 4, 'Capsicum Rings', 1, 240);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 13, 'Mexican Salad', 4, 240);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 14, 'Colesaw', 4, 215);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 15, 'Arabesca Salad', 4, 435);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 16, 'Tiramisu', 5, 260);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 17, 'Panna Cotta', 5, 250);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 19, 'Blueberry Cheese Cak', 5, 260);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 18, 'Choclate Mousse Cake', 5, 270);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 20, 'Little Berry', 6, 235);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 21, 'Pretty Pink', 6, 240);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 22, 'Orient Express', 6, 235);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (106, 23, 'Chiller', 6, 230);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 1, 'Cheese Fondue', 1, 340);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 2, 'Quesdilla', 1, 270);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 3, 'Jalapeno Cheese Bomb', 1, 290);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 4, 'Paneer Angara', 1, 310);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 5, 'Lucknow kabab', 1, 300);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 6, 'Cheese Bell Pepper', 2, 170);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 7, 'Tom Yum', 2, 200);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 8, 'Veg Clear Thai', 2, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 9, 'Caesar Salad', 4, 140);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 10, 'Warm Salad', 4, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 11, 'Woldorf Salad', 4, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 12, 'Pad Thai Noodles', 3, 260);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 14, 'Cheese Butter Masala', 3, 360);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 15, 'Lahori Paneer', 3, 360);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 16, 'Malai Kofta', 3, 300);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 17, 'Hyderabadi Dal', 3, 240);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 18, 'Kulcha/Roti/Naan', 3, 60);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 13, '4 cheese Ravioli', 3, 240);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 19, 'Sizzling Brownie', 5, 220);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 20, 'Choclate Pyramid', 5, 210);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 21, 'Deconstructed Apple ', 5, 210);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 22, 'Shakes(Choclate/Vani', 6, 170);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 23, 'Redbull Mojito', 6, 220);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 24, 'Buttermilk', 6, 80);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (107, 25, 'Punjabi Lassi', 6, 110);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 1, 'French Fries', 1, 70);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 2, 'Garlic Bread', 1, 80);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 3, 'Veg Soup', 2, 100);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 4, 'Hot and Sour', 2, 100);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 6, 'Margherita(Large)', 3, 385);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 5, 'Margherita (Med)', 3, 215);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 10, 'Red Indian/Veggie De', 3, 495);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 7, 'Popeye/Tomichi/Capon', 3, 445);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 8, 'Popeye/Tomichi/Capon', 3, 295);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 11, 'Black and white Sund', 5, 110);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 12, 'Brownie', 5, 80);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (108, 13, 'Coke Pitcher', 6, 100);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 1, 'Garlic Bread', 1, 100);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 2, 'Bruchetta', 1, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 3, 'Cheese Chilly toast', 1, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 4, 'Alumutter sandwitch', 3, 160);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 5, 'Indian Club Sandwitc', 3, 170);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 6, 'Italian Pizza(Med)', 3, 250);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 7, 'American Pizza(Med)', 3, 290);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 8, 'Veg Hakka Noodles', 3, 165);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 9, 'Triple Schezwan Rice', 3, 180);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 10, 'Butter Scotch Deligh', 5, 100);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 11, 'Strawberry Delight S', 5, 100);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 12, 'Khus Faluda', 5, 120);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 13, 'Choclate/Vanilla/Str', 6, 120);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 14, 'Choclate Thick shake', 6, 150);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (109, 15, 'Pav Bhaji', 3, 200);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 1, 'Cheese Jalepeno Ques', 1, 123);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 2, 'Ahmedabad Masala Tor', 1, 47);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 4, 'Mexicana Focaccia', 3, 120);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 5, 'Falafel', 3, 120);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 6, 'BFL Panini', 3, 151);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 7, 'AFL Jumbo grilled Sa', 3, 170);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 8, 'Pasta Arabiata', 3, 160);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 9, 'Tandoori Paneer Pizz', 3, 160);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 10, 'Cold Coffee', 6, 80);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 11, 'Litchi Thick Shake', 6, 113);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 12, 'Kitkat Shake', 6, 120);
+INSERT INTO menu (res_id, item_no, name, category_code, price) VALUES (110, 13, 'Pineapple Fruit Juic', 6, 81);
+
+
+Restaurant
+
+
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (101, 'Greenz', 5, 'soho center', '9898234531', 250, '11:00 AM-11:00 PM', 3, 20);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (102, 'Dominoes', 3, 'shivalik plaza', '7923451234', 300, '10:30 AM-11:30 PM', 4, 10);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (103, 'La Pinoz', 12, 'paradise center', '7923461890', 250, '11:00 AM-11:30 PM', 10, 25);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (104, 'Varie Tea', 17, 'satyam center', '9898345612', 400, '11:00 AM-11:30 PM', 12, 5);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (105, 'Havmor', 56, 'sampanna complex ', '8762344520', 500, '11:00 AM-11:30 PM', 13, 0);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (107, 'Brick Kitchen', 401, 'ambe tower', '9876523410', 550, '12:00 PM-12:00 AM', 16, 5);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (108, 'Sam''s Pizza', 36, 'Infocity', '7856341232', 250, '10:00 AM-11:30 AM', 44, 25);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (109, 'Choice', 20, 'municipal market', '9898984545', 300, '12:00 PM-11:00 PM', 54, 0);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (110, 'Freeze Land', 21, 'abhishek tower', '8787235261', 250, '12:00 PM- 10:30 PM', 69, 7);
+INSERT INTO restaurant (res_id, name, shop_no, street, contact_no, avg_cost, timings, area_pincode, rest_discount) VALUES (106, 'Little Italy', 12, 'shiv tower', '8723456211', 600, '10:00 AM-11:00 PM', 15, 10);
+
+
+Bill
+
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (1, 105, 2, NULL, '2017-11-11 02:48:10.386084', NULL, 'Delivery boy unavailable', 1800, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (2, 107, 9, 2, '2017-11-11 02:59:35.839683', NULL, 'Delivering', 2300, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (15, 105, 16, NULL, '2017-11-11 12:03:36.224555', NULL, 'Delivery boy unavailable', 4257, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (3, 106, 3, 10, '2017-11-11 03:06:36.57529', '2017-11-11 03:08:56.118305', 'Delivered', 6705, 1170);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (11, 104, 34, NULL, '2017-11-11 11:47:33.975769', NULL, 'Delivery boy unavailable', 1145, 57);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (4, 101, 9, NULL, '2017-11-11 04:42:15.32726', NULL, 'Delivery boy unavailable', 1024, 204);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (16, 108, 20, NULL, '2017-11-11 12:05:14.999544', NULL, 'Delivery boy unavailable', 1298, 324);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (5, 107, 23, NULL, '2017-11-11 04:43:47.281173', NULL, 'Delivery boy unavailable', 2413, 120);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (12, 107, 36, NULL, '2017-11-11 11:50:19.434886', NULL, 'Delivery boy unavailable', 2822, 141);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (17, 109, 10, NULL, '2017-11-11 12:10:16.163218', NULL, 'Delivery boy unavailable', 1195, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (6, 106, 22, 9, '2017-11-11 04:47:19.351568', '2017-11-11 04:47:19.351568', 'Delivered', 3146, 514);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (8, 108, 20, 6, '2017-11-11 04:48:03.694026', '2017-11-11 04:48:03.694026', 'Delivered', 590, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (18, 105, 5, 8, '2017-11-11 12:12:43.949771', '2017-11-11 12:12:56.984576', 'Delivered', 1350, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (7, 106, 15, 10, '2017-11-11 04:49:04.215693', '2017-11-11 04:49:04.215693', 'Delivered', 585, 358);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (9, 105, 10, NULL, '2017-11-11 11:43:45.975852', NULL, 'Delivery boy unavailable', 2782, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (13, 107, 22, NULL, '2017-11-11 11:56:19.234946', NULL, 'Delivery boy unavailable', 1881, 94);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (10, 108, 25, NULL, '2017-11-11 11:45:06.891421', NULL, 'Delivery boy unavailable', 1590, 397);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (19, 106, 15, 10, '2017-11-11 12:13:07.664638', '2017-11-11 12:13:07.664638', 'Delivered', 5607, 560);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (14, 110, 10, NULL, '2017-11-11 12:01:17.411004', NULL, 'Delivery boy unavailable', 1193, 0);
+INSERT INTO bill (order_id, res_id, customer_id, dboy_id, placed_date_time, delivery_date_time, order_status, total_price, discount) VALUES (20, 102, 15, NULL, '2017-11-11 12:18:35.606444', NULL, 'Delivery boy unavailable', 2475, 247);
+
+
+
+
+Orders
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (1, 105, 2, 6, 2);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (2, 107, 8, 4, 9);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (2, 107, 6, 10, 9);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (3, 106, 3, 15, 3);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (4, 101, 1, 3, 9);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (4, 101, 2, 2, 9);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (4, 101, 4, 3, 9);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (5, 107, 5, 2, 23);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (5, 107, 3, 2, 23);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (5, 107, 1, 4, 23);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (6, 106, 1, 4, 22);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (6, 106, 7, 3, 22);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (6, 106, 8, 2, 22);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (8, 108, 8, 2, 20);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (7, 106, 8, 2, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (9, 105, 6, 3, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (9, 105, 7, 2, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (9, 105, 1, 1, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (9, 105, 8, 3, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (10, 108, 6, 3, 25);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (10, 108, 8, 2, 25);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (10, 108, 9, 1, 25);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (11, 104, 2, 3, 34);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (11, 104, 1, 2, 34);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (11, 104, 3, 4, 34);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (11, 104, 4, 1, 34);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (12, 107, 2, 3, 36);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (12, 107, 4, 3, 36);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (12, 107, 10, 3, 36);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (12, 107, 12, 3, 36);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (13, 107, 20, 3, 22);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (13, 107, 18, 3, 22);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (13, 107, 17, 3, 22);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (13, 107, 10, 3, 22);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (14, 110, 10, 3, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (14, 110, 8, 1, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (14, 110, 7, 2, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (14, 110, 6, 3, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (15, 105, 8, 3, 16);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (15, 105, 7, 2, 16);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (15, 105, 5, 4, 16);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (15, 105, 2, 4, 16);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (16, 108, 8, 3, 20);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (16, 108, 5, 3, 20);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (16, 108, 3, 2, 20);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (17, 109, 8, 3, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (17, 109, 10, 2, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (17, 109, 6, 2, 10);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (18, 105, 6, 9, 5);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (19, 106, 8, 3, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (19, 106, 6, 2, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (19, 106, 3, 4, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (19, 106, 7, 3, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (20, 102, 5, 3, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (20, 102, 3, 2, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (20, 102, 2, 4, 15);
+INSERT INTO orders (order_id, res_id, item_no, quantity, customer_id) VALUES (20, 102, 4, 5, 15);

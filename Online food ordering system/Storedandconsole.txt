@@ -1,0 +1,521 @@
+1.Stored Procedures:
+
+
+
+1. To calculate the price after including discount given by the restaurant as well as using the cash back points of the customer(if customer wants to redeem).
+
+
+set search_path to restaurant_management;
+CREATE OR REPLACE FUNCTION calculate_discount(o_id INTEGER,c_id INTEGER,r_id INTEGER,redeem INTEGER) RETURNS INTEGER AS $BODY$
+
+
+DECLARE
+cp INTEGER;
+tp INTEGER;
+rd INTEGER;
+dis INTEGER;
+
+
+BEGIN
+        SELECT cashback_points INTO cp FROM customer where customer_id=c_id;
+        SELECT total_price INTO tp FROM bill where order_id=o_id;
+        SELECT rest_discount INTO rd FROM restaurant where res_id=r_id;
+        
+        IF redeem=1 THEN
+                IF tp>cp THEN
+                        tp=tp-cp;
+                        tp=tp-tp*rd/100;
+                        dis= cp+tp*rd/100;
+                        UPDATE bill SET total_price=tp, discount=dis WHERE order_id=o_id;
+                        UPDATE customer SET cashback_points=0 WHERE customer_id=c_id;
+                END IF;
+        ELSE 
+                tp=tp-tp*rd/100;
+                dis=tp*rd/100;
+                UPDATE bill SET total_price=tp, discount=dis WHERE order_id=o_id;
+        END IF;
+        RETURN 1;
+END;
+$BODY$ LANGUAGE plpgsql;
+
+
+
+
+2. Updates the bill once the final order has been placed by calculating the total price, assigning restaurant ID, customer ID, placed date and time, discount and order status.
+
+
+CREATE OR REPLACE FUNCTION updatebilltuple(id integer) RETURNS integer AS $BODY$
+
+
+DECLARE
+    c1 refcursor;
+    orderid integer;
+    resid integer;
+    itemno integer;
+    qty integer;
+    customerid integer;
+    itemprice integer;
+    tprice integer;
+    dboyid integer;
+BEGIN
+    SELECT res_id, customer_id INTO resid, customerid FROM orders WHERE order_id=id;
+    tprice=0;
+    OPEN c1 FOR SELECT item_no, quantity FROM orders WHERE order_id=id;
+    LOOP
+            FETCH c1 INTO itemno, qty;
+            EXIT WHEN NOT FOUND;
+            SELECT price INTO itemprice FROM Menu WHERE res_id=resid AND item_no=itemno;
+            tprice=tprice+qty*itemprice;
+    END LOOP;
+
+
+    SELECT dboy_id INTO dboyid FROM bill WHERE order_id=id;
+    IF dboyid IS NOT NULL THEN
+            UPDATE bill
+            SET customer_id=customerid,
+            res_id=resid,
+            placed_date_time=current_timestamp,
+            order_status='Delivering',
+            total_price=tprice,
+            discount=0;
+            WHERE order_id=id;
+    ELSE
+            UPDATE bill
+            SET customer_id=customerid,
+            res_id=resid,
+            placed_date_time=current_timestamp,
+            order_status='Delivery boy unavailable',
+            total_price=tprice,
+            discount=0
+            WHERE order_id=id;
+    END IF;
+    CLOSE c1;
+    RETURN 1;
+END;
+$BODY$
+LANGUAGE plpgsql;
+
+
+
+
+3. Updates the bill when the order is delivered by updating the order status and delivered timestamp.
+
+
+set search_path to restaurant_management;
+CREATE OR REPLACE FUNCTION deliveryupdate(orderid integer) RETURNS integer AS $BODY$
+DECLARE
+    db integer;
+BEGIN
+    SELECT dboy_id INTO db FROM bill WHERE order_id=orderid;
+    IF db IS NOT NULL THEN
+            UPDATE bill
+            SET delivery_date_time=current_timestamp,
+            order_status='Delivered'
+            WHERE bill.order_id=orderid;
+            RETURN 1;
+    END IF;
+    RETURN 1;
+END;
+$BODY$
+LANGUAGE plpgsql;
+
+
+
+
+
+2. Triggers:
+
+
+1. Inserts a new bill tuple into the Bill relation for every new order ID insertion into orders.
+
+
+set search_path to restaurant_management;
+CREATE OR REPLACE FUNCTION make_new_bill() RETURNS TRIGGER AS $BODY$
+DECLARE
+    c1 refcursor;
+    c2 refcursor;
+    dbid integer;
+    orderid integer;
+    carea integer;
+BEGIN
+    OPEN c1 FOR SELECT order_id FROM bill WHERE NEW.order_id=order_id;
+    FETCH c1 INTO orderid;
+    IF orderid IS NULL THEN
+            SELECT area_pincode INTO carea FROM Customer WHERE customer_id=NEW.customer_id;
+            OPEN c2 FOR SELECT d.DBoy_ID FROM Delivery_Boy AS d WHERE d.area_pincode=carea AND d.isfree=TRUE AND d.Res_ID=NEW.res_id;
+            FETCH c2 INTO dbid;
+            IF dbid IS NOT NULL THEN
+                    INSERT INTO bill (order_id, dboy_id, total_price) VALUES (NEW.order_id, dbid, 0);
+                    UPDATE Delivery_boy SET isfree=FALSE WHERE dboy_id=dbid;
+            ELSE
+                    INSERT INTO bill (order_id, total_price) VALUES (NEW.order_id, 0);
+            END IF;
+            RETURN NEW;
+    END IF;
+    RETURN NEW;
+END;
+$BODY$
+LANGUAGE plpgsql;
+
+
+CREATE TRIGGER billentry
+BEFORE INSERT ON orders
+FOR EACH ROW EXECUTE PROCEDURE make_new_bill();
+
+
+
+2. Cashback trigger
+Updates the cash back points of the customer based on the total   price of order placed by customer.
+
+
+
+
+set search_path to restaurant_management;
+
+
+CREATE OR REPLACE FUNCTION restaurant_management.update_cashback_function()
+  RETURNS trigger AS
+$BODY$
+
+
+DECLARE 
+cp INTEGER;
+BEGIN 
+        SELECT cashback_points INTO cp FROM customer where customer_id=NEW.customer_id;        
+
+
+        IF NEW.total_price>0 AND NEW.order_status='Delivering' THEN
+                IF NEW.total_price>1500 AND NEW.total_price<2500 THEN
+                        UPDATE customer SET cashback_points=cp+100 WHERE customer_id=NEW.customer_id;
+                ELSIF NEW.total_price>2500 AND NEW.total_price<4000 THEN
+                        UPDATE customer SET cashback_points=cp+200 WHERE customer_id=NEW.customer_id;
+                ELSIF NEW.total_price>4000 AND NEW.total_price<5500 THEN
+                        UPDATE customer SET cashback_points=cp+300 WHERE customer_id=NEW.customer_id;
+                ELSIF NEW.total_price>5500 AND NEW.total_price<7000 THEN
+                        UPDATE customer SET cashback_points=cp+400 WHERE customer_id=NEW.customer_id;
+                ELSIF NEW.total_price>7000 AND NEW.total_price<8500 THEN
+                        UPDATE customer SET cashback_points=cp+500 WHERE customer_id=NEW.customer_id;
+                ELSIF NEW.total_price>8500 AND NEW.total_price<10000 THEN
+                        UPDATE customer SET cashback_points=cp+600 WHERE customer_id=NEW.customer_id;
+                ELSIF NEW.total_price>10000 THEN
+                        UPDATE customer SET cashback_points=cp+750 WHERE customer_id=NEW.customer_id;
+                END IF;
+        END IF;
+        RETURN NULL;
+END;
+$BODY$
+  LANGUAGE plpgsql;
+
+
+CREATE TRIGGER update_cashback
+AFTER UPDATE ON bill
+FOR EACH ROW EXECUTE PROCEDURE update_cashback_function();
+
+
+
+
+3. Updates isfree status of delivery boy when the delivery date and time of the order is updated. 
+
+
+
+set search_path to restaurant_management;
+CREATE OR REPLACE FUNCTION db_status_update() RETURNS TRIGGER AS $BODY$
+BEGIN
+    IF NEW.delivery_date_time IS NOT NULL THEN
+            UPDATE Delivery_boy
+            SET isfree=TRUE WHERE Delivery_boy.dboy_id=NEW.dboy_id;
+            RETURN NEW;
+    END IF;
+    RETURN NEW;
+END;
+$BODY$
+LANGUAGE plpgsql;
+
+
+CREATE TRIGGER dbstatus
+AFTER UPDATE ON bill
+FOR EACH ROW EXECUTE PROCEDURE db_status_update();
+
+
+ 
+
+
+
+               
+3.Console Application in C
+
+
+
+
+   /* Processed by ecpg (4.12.0) */
+/* These include files are added by the preprocessor */
+#include <ecpglib.h>
+#include <ecpgerrno.h>
+#include <sqlca.h>
+/* End of automatic include section */
+
+
+#line 1 "ConsoleApp.pgc"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sqlda.h>
+//EXEC SQL include sqla.h;
+sqlda_t *sqlda1;
+sqlda_t *sqlda2;
+/* exec sql begin declare section */
+  
+ 
+#line 10 "ConsoleApp.pgc"
+ char search [ 20000 ] , query [ 20000 ] , x [ 20000 ] , username [ 200 ] , name [ 100 ] , pass [ 200 ] ;
+ 
+#line 11 "ConsoleApp.pgc"
+ char c , * ans ;
+ 
+#line 12 "ConsoleApp.pgc"
+ const char * password ;
+ 
+#line 13 "ConsoleApp.pgc"
+ int i = 0 , intval ;
+ 
+#line 14 "ConsoleApp.pgc"
+ long long longlongval ;
+/* exec sql end declare section */
+#line 15 "ConsoleApp.pgc"
+
+
+/* exec sql whenever sqlerror  call print_sqlca ( ) ; */
+#line 16 "ConsoleApp.pgc"
+
+
+
+
+void print_sqlca()
+{
+    fprintf(stderr, "==== sqlca ====\n");
+    fprintf(stderr, "sqlcode: %ld\n", sqlca.sqlcode);
+    fprintf(stderr, "sqlerrm.sqlerrml: %d\n", sqlca.sqlerrm.sqlerrml);
+    fprintf(stderr, "sqlerrm.sqlerrmc: %s\n", sqlca.sqlerrm.sqlerrmc);
+    fprintf(stderr, "sqlerrd: %ld %ld %ld %ld %ld %ld\n", sqlca.sqlerrd[0],sqlca.sqlerrd[1],sqlca.sqlerrd[2],
+                                                          sqlca.sqlerrd[3],sqlca.sqlerrd[4],sqlca.sqlerrd[5]);
+    fprintf(stderr, "sqlwarn: %d %d %d %d %d %d %d %d\n", sqlca.sqlwarn[0], sqlca.sqlwarn[1], sqlca.sqlwarn[2],
+                                                          sqlca.sqlwarn[3], sqlca.sqlwarn[4], sqlca.sqlwarn[5],
+                                                          sqlca.sqlwarn[6], sqlca.sqlwarn[7]);
+    fprintf(stderr, "sqlstate: %5s\n", sqlca.sqlstate);
+    fprintf(stderr, "===============\n");
+}
+void ExecuteQuerry()
+{
+        printf("Input Your Query :\n");
+        scanf(" %[^\n]",query);
+        { ECPGprepare(__LINE__, NULL, 0, "eq", query);
+#line 36 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 36 "ConsoleApp.pgc"
+
+
+        /* declare cur1 cursor for $1 */
+#line 37 "ConsoleApp.pgc"
+
+
+        { ECPGdo(__LINE__, 0, 1, NULL, 0, ECPGst_normal, "declare cur1 cursor for $1", 
+        ECPGt_char_variable,(ECPGprepared_statement(NULL, "eq", __LINE__)),(long)1,(long)1,(1)*sizeof(char), 
+        ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EOIT, ECPGt_EORT);
+#line 38 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 38 "ConsoleApp.pgc"
+
+
+        while(sqlca.sqlcode==0)
+        {
+                { ECPGdo(__LINE__, 0, 1, NULL, 0, ECPGst_normal, "fetch next from cur1", ECPGt_EOIT, 
+        ECPGt_sqlda, &sqlda1, 0L, 0L, 0L, 
+        ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EORT);
+#line 41 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 41 "ConsoleApp.pgc"
+
+
+                sqlda_t *cur_sqlda;
+                for (cur_sqlda = sqlda1;cur_sqlda != NULL;cur_sqlda = cur_sqlda->desc_next)
+                {
+                        int i;
+                char name_buf[1024];
+                char var_buf[1024];
+                    for (i = 0; i < cur_sqlda->sqld; i++)
+                        {
+                            sqlvar_t v = cur_sqlda->sqlvar[i];
+                            char *sqldata = v.sqldata;
+                            short sqllen  = v.sqllen;
+                            strncpy(name_buf, v.sqlname.data, v.sqlname.length);
+                    name_buf[v.sqlname.length] = '\0';
+
+
+                        switch (v.sqltype)
+                        {
+                            case ECPGt_char:
+                                memset(&var_buf, 0, sizeof(var_buf));
+                                memcpy(&var_buf, sqldata, (sizeof(var_buf)<=sqllen ? sizeof(var_buf)-1 : sqllen) );
+                                break;
+
+
+                            case ECPGt_int: /* integer */
+                                memcpy(&intval, sqldata, sqllen);
+                                snprintf(var_buf, sizeof(var_buf), "%d", intval);
+                                break;
+
+
+                            case ECPGt_long_long: /* bigint */
+                                memcpy(&longlongval, sqldata, sqllen);
+                                snprintf(var_buf, sizeof(var_buf), "%lld", longlongval);
+                                break;
+
+
+                            default:
+                            {
+                                int i;
+                                memset(var_buf, 0, sizeof(var_buf));
+                                for (i = 0; i < sqllen; i++)
+                                {
+                                    char tmpbuf[16];
+                                    snprintf(tmpbuf, sizeof(tmpbuf), "%02x ", (unsigned char) sqldata[i]);
+                                    strncat(var_buf, tmpbuf, sizeof(var_buf));
+                                }
+                            }
+                                break;
+                        }
+
+
+                        printf("%s = %s\n", name_buf, var_buf);
+                }
+
+
+                    printf("\n");
+            }
+
+
+        }
+        { ECPGdo(__LINE__, 0, 1, NULL, 0, ECPGst_normal, "close cur1", ECPGt_EOIT, ECPGt_EORT);
+#line 94 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 94 "ConsoleApp.pgc"
+
+
+        { ECPGtrans(__LINE__, NULL, "commit");
+#line 95 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 95 "ConsoleApp.pgc"
+
+
+}
+
+
+void UpdateQuerry()
+{
+        printf("Input Your Query : \n");
+        scanf(" %[^\n]",query);
+        //printf("%s\n",query);
+        { ECPGdo(__LINE__, 0, 1, NULL, 0, ECPGst_execute, query, ECPGt_EOIT, ECPGt_EORT);
+#line 103 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 103 "ConsoleApp.pgc"
+
+
+        if(sqlca.sqlcode==0)
+        {
+                fprintf(stderr, "Successful\n");
+        }
+}
+int main()
+{
+        printf("DBNAME: ");
+        scanf(" %[^\n]",name);
+        getchar();
+
+
+        printf("USERNAME: ");
+        scanf(" %[^\n]",username);
+        getchar();
+
+
+        printf("PASSWORD: ");
+        scanf(" %[^\n]",pass);
+        getchar();
+
+
+        strcpy(name,"201501016@10.100.71.21:5432");
+    { ECPGconnect(__LINE__, 0, name , username , pass , NULL, 0); 
+#line 124 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 124 "ConsoleApp.pgc"
+
+
+
+
+        if(sqlca.sqlcode==0)
+                fprintf(stderr, "Connection Successful\n");
+        else
+                exit(1);
+
+
+        printf("Set your search path :\n");
+        scanf(" %[^\n]",search);
+        { ECPGdo(__LINE__, 0, 1, NULL, 0, ECPGst_normal, "set search_path to $0", 
+        ECPGt_char,(search),(long)20000,(long)1,(20000)*sizeof(char), 
+        ECPGt_NO_INDICATOR, NULL , 0L, 0L, 0L, ECPGt_EOIT, ECPGt_EORT);
+#line 133 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 133 "ConsoleApp.pgc"
+
+
+
+
+        if(sqlca.sqlcode==0)
+                fprintf(stderr,"Search_path Successfully set\n");
+        else
+        {
+                fprintf(stderr,"No such path available\n");
+                exit(1);
+        }
+        while(1)
+        {
+                printf("Press 1 for INSERT,UPDATE and DELETE Querry.\nPress 2 for SELECT querry.\nPress anything else to exit.\n");
+                scanf(" %c",&c);
+                if(c=='1')
+                {
+                        UpdateQuerry();
+                }
+                else if(c=='2')
+                {
+                        ExecuteQuerry();
+                }
+                else
+                        break;
+        }
+    { ECPGdisconnect(__LINE__, "ALL");
+#line 157 "ConsoleApp.pgc"
+
+
+if (sqlca.sqlcode < 0) print_sqlca ( );}
+#line 157 "ConsoleApp.pgc"
+
+
+    return 0;
+}

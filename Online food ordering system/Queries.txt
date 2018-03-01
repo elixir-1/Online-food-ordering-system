@@ -1,0 +1,216 @@
+﻿Queries
+
+
+1. Most preferred restaurant according to customer ratings.
+
+
+select res_id, restaurant.name, Average_Rating from restaurant 
+NATURAL JOIN (select feedback.res_id,avg(rating) as Average_Rating from restaurant NATURAL JOIN feedback GROUP BY feedback.res_id) as r1 
+where Average_Rating =
+(select max(average_rating) from (select feedback.res_id,avg(rating) as Average_Rating from restaurant 
+NATURAL JOIN feedback GROUP BY feedback.res_id) as r2 ) ;
+
+
+2. Trending restaurant in a particular month and year (based on number of orders)                                            
+Utility : Trending this month
+
+
+select restaurant.name from restaurant 
+NATURAL JOIN 
+(select res_id,count(order_id) as c from bill  where extract(month from placed_date_time)=11 and extract(year from placed_date_time)=2017 
+GROUP BY res_id) as r1 
+WHERE  c= 
+(select max(c) from (select res_id,count(order_id) as c from bill 
+WHERE extract(month from placed_date_time)=11 and extract(year from placed_date_time)=2017
+GROUP BY res_id) as r3);
+
+
+3. Best selling item of every restaurant according to quantity sold.
+
+
+select restaurant.name, r5.name from 
+(select menu.name,r4.res_id , r4.item_no , s from menu 
+JOIN (select res_id,item_no,s from (select res_id,item_no,sum(quantity) as s from orders 
+GROUP BY res_id,item_no) as r1
+NATURAL JOIN
+(select res_id,max(s) as s1 from (select res_id,item_no,sum(quantity) as s from orders GROUP BY res_id,item_no) as r2 GROUP BY res_id) as r3 
+where s=s1vORDER BY res_id) as r4
+on menu.item_no = r4.item_no and menu.res_id=r4.res_id) as r5
+JOIN restaurant on restaurant.res_id=r5.res_id;
+4. Display restaurants which serve all the categories of food.
+
+
+SELECT * FROM restaurant
+WHERE res_id NOT IN(
+SELECT res_id FROM(
+(SELECT res_id,category_code FROM (select res_id FROM restaurant) as r CROSS JOIN (SELECT distinct category_code FROM category) as c) 
+EXCEPT SELECT res_id,category_code FROM menu) AS p );
+
+
+5. Top selling starter(or any particular category) in town.
+(Displays starter and Restaurant name)
+
+
+select restaurant.name, r7.item from restaurant 
+NATURAL JOIN
+(select res_id,menu.name as item from menu NATURAL JOIN
+(
+select res_id , item_no from 
+(select res_id,item_no, sum(quantity) as sum from (select order_id , res_id , item_no ,quantity , r1.category_code from 
+(orders NATURAL JOIN menu ) as r1 
+where r1.category_code=1) as r2 GROUP BY res_id,item_no) as r4
+NATURAL JOIN
+(select max(sum) from 
+(select res_id,item_no, sum(quantity) as sum from (select order_id , res_id , item_no ,quantity , r1.category_code from 
+(orders NATURAL JOIN menu ) as r1 
+where r1.category_code=1) as r2 GROUP BY res_id,item_no) as r3) as r5)  as r6)as r7;
+
+
+
+
+6. Show reviews of  customer who have ordered from maximum number of restaurants.
+Utility : Top rated customer
+
+
+select customer.name,restaurant.name,rating,review from restaurant 
+NATURAL JOIN (select *from feedback) as r1 
+NATURAL JOIN 
+(select customer_id, count(review) as countr from feedback GROUP BY(customer_id)
+HAVING count(review) =
+(select max(countr1) as countr from (select customer_id,count(review) as countr1 from feedback GROUP BY customer_id) as r3) ) as r4 
+JOIN customer ON r4.customer_id= customer.customer_id;
+
+
+
+
+
+
+7. Display the restaurants which delivers in all the areas.
+
+
+SELECT * FROM restaurant
+WHERE res_id not in(
+SELECT res_id FROM(
+(SELECT res_id,area_pincode FROM (select res_id FROM restaurant) as r CROSS JOIN (SELECT distinct area_pincode FROM area) as a) 
+EXCEPT SELECT res_id,area_pincode FROM delivery_boy) AS p );
+
+
+
+
+8. Display average rating of a restaurant offering maximum discount.
+
+select name, AVG_RATING from restaurant
+ NATURAL JOIN 
+(select res_id, avg(rating) as AVG_RATING from feedback
+ NATURAL JOIN 
+(select res_id from restaurant where rest_discount=(select max(rest_discount) from restaurant)) as r1 group by res_id) as r2;
+
+
+   
+10. Order History of a particular customer.
+
+
+select restaurant.res_id, restaurant.name , placed_date_time , total_price from restaurant JOIN bill 
+on restaurant.res_id = bill.res_id
+where customer_id=2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11. Display all the restaurants which delivers to a particular customer’s area and sort by restaurant rating and average_cost
+
+
+select r2.name, r1.AVG_RATING, r2.avg_cost FROM 
+(select distinct restaurant.* from restaurant JOIN delivery_boy  on restaurant.res_id= delivery_boy.res_id 
+WHERE delivery_boy.area_pincode = (select area_pincode from customer where customer_id=1) ) as r2
+NATURAL JOIN
+(select res_id, avg(rating) as AVG_RATING from feedback GROUP BY res_id) as r1
+ORDER BY r2.avg_cost ASC,AVG_RATING desc;
+
+
+
+
+
+
+12. List of restaurants serving beverages.
+
+
+SELECT * FROM restaurant
+ WHERE res_id IN ( SELECT DISTINCT res_id FROM menu JOIN category ON menu.category_code= category.category_code 
+WHERE category.name='beverages and shakes');
+
+
+13. Display the average rating of a restaurant which has at least 5 reviews.
+Utility : More number of reviews , more famous is the restaurant.
+
+
+select restaurant.name, r1.AVERAGE_RATING from (select res_id, count(res_id) as rev, avg(rating) as AVERAGE_RATING from feedback group by res_id) as r1 natural JOIN restaurant
+WHERE rev>=5;
+ 
+14.List of restaurants serving Italian and having an average cost below 250.
+
+
+select restaurant.name from (select distinct res_id from cuisine where               name='Italian' ) as r1 natural join restaurant where restaurant.avg_cost<=250;
+
+
+15. Display the menu along with the food categories of a particular restaurant. 
+
+
+select menu.name, category.name from restaurant 
+JOIN menu on restaurant.res_id=menu.res_id 
+JOIN category on menu.category_code=category.category_code 
+WHERE restaurant.res_id='105' ;
+
+
+
+
+16. Display the restaurant having maximum number of successful deliveries.
+
+
+select name from (select res_id, c1 from  (select res_id, count(res_id) as c from bill where order_status='Delivered' group by res_id) as r2 
+natural join (select max(c) as c1 from (select res_id, count(res_id) as c from bill where order_status='Delivered' group by res_id) as r2)
+ as r3) as r4 natural join restaurant;
+
+
+
+
+17. Select all restaurants from which a particular customer has ordered.
+Utility : Order History
+
+
+select res_id, restaurant.name from restaurant
+ NATURAL JOIN (select distinct res_id from bill where customer_id=2) as r1;
+
+
+18. Total number of orders of each restaurant.
+
+
+select name, countOrders from 
+(select res_id, count(order_id) as countOrders from bill group by res_id) as r1 natural JOIN restaurant;
+
+
+19. Sort restaurants on the basis of average ratings.
+
+
+select name, AVG_RATING from restaurant 
+NATURAL JOIN  (select res_id, avg(rating) as AVG_RATING from feedback
+GROUP BY res_id) as r1 order by(AVG_RATING) desc;
+
+
+20. Display all the customers whose orders weren’t delivered.
+select name from bill natural join customer where order_status='Delivery boy unavailable';
+
+
+21. Details of delayed orders.
+select * from bill where 
+extract(minute from delivery_date_time)-extract(minute from placed_date_time)>=2;

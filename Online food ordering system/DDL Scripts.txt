@@ -1,0 +1,182 @@
+
+
+DDL Scripts
+
+
+1. Restaurant
+
+
+    CREATE TABLE restaurant (
+    res_id integer NOT NULL,
+    name character varying(20),
+    shop_no smallint,
+    street character varying(20),
+    contact_no character varying(10),
+    avg_cost smallint,
+    timings character varying(20),
+    area_pincode integer,
+    rest_discount integer,
+    CONSTRAINT restaurant_pkey PRIMARY KEY (res_id),
+    CONSTRAINT restaurant_area_pincode_fkey FOREIGN KEY (area_pincode)
+    REFERENCES restaurant_management.area (area_pincode) MATCH SIMPLE
+    ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+
+2. Area
+
+
+CREATE TABLE area (
+area_pincode integer NOT NULL,
+area_name character(20),
+CONSTRAINT pincode PRIMARY KEY (area_pincode)
+);
+
+
+3. Bill
+
+
+CREATE TABLE bill (
+    order_id integer NOT NULL,
+    res_id integer,
+    customer_id integer,
+    dboy_id integer,
+    placed_date_time timestamp without time zone,
+    delivery_date_time timestamp without time zone,
+    order_status character varying(50),
+    total_price integer,
+    discount integer,
+   CONSTRAINT bill_pkey PRIMARY KEY (order_id),
+   CONSTRAINT bill_customer_id_fkey FOREIGN KEY (customer_id)
+   REFERENCES restaurant_management.customer (customer_id) MATCH SIMPLE
+   ON UPDATE CASCADE ON DELETE CASCADE,
+   CONSTRAINT bill_dboy_id_fkey FOREIGN KEY (dboy_id, res_id)
+      REFERENCES restaurant_management.delivery_boy (dboy_id, res_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+
+
+);
+
+
+4. Category
+
+
+CREATE TABLE category (
+    category_code smallint NOT NULL,
+    name character varying(20),
+    CONSTRAINT category_pkey PRIMARY KEY (category_code)
+);
+
+
+5. Cuisine
+
+
+CREATE TABLE cuisine (
+ res_id integer NOT NULL,
+ name character varying(20) NOT NULL,
+CONSTRAINT cuisine_pkey PRIMARY KEY (res_id, name),
+  CONSTRAINT cuisine_res_id_fkey FOREIGN KEY (res_id)
+      REFERENCES restaurant_management.restaurant (res_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+6. Customer
+
+
+CREATE TABLE customer (
+    customer_id integer NOT NULL,
+    name character varying(20),
+    email character varying(30),
+    contact_no character varying(10),
+    house_no smallint,
+    street character varying(50),
+    cashback_points integer,
+    area_pincode integer,
+CONSTRAINT customer_pkey PRIMARY KEY (customer_id),
+  CONSTRAINT customer_area_pincode_fkey FOREIGN KEY (area_pincode)
+      REFERENCES restaurant_management.area (area_pincode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+); 
+
+       
+7. Delivery Boy
+
+
+CREATE TABLE delivery_boy (
+    res_id integer NOT NULL,
+    dboy_id integer NOT NULL,
+    dboy_name character varying(20),
+    contact_no character varying(10),
+    isfree boolean,
+    area_pincode integer,
+CONSTRAINT delivery_boy_pkey PRIMARY KEY (res_id, dboy_id),
+  CONSTRAINT delivery_boy_area_pincode_fkey FOREIGN KEY (area_pincode)
+      REFERENCES restaurant_management.area (area_pincode) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT delivery_boy_res_id_fkey FOREIGN KEY (res_id)
+      REFERENCES restaurant_management.restaurant (res_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+8. Feedback
+
+
+CREATE TABLE feedback (
+    res_id integer NOT NULL,
+    customer_id integer NOT NULL,
+    rating numeric,
+    review character varying(100),
+CONSTRAINT feedback_pkey PRIMARY KEY (res_id, customer_id),
+  CONSTRAINT feedback_customer_id_fkey FOREIGN KEY (customer_id)
+      REFERENCES restaurant_management.customer (customer_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT feedback_res_id_fkey FOREIGN KEY (res_id)
+      REFERENCES restaurant_management.restaurant (res_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+
+
+9. Orders
+
+
+CREATE TABLE orders (
+    order_id integer NOT NULL,
+    res_id integer NOT NULL,
+    item_no integer NOT NULL,
+    quantity smallint,
+    customer_id integer,
+CONSTRAINT orders_pkey PRIMARY KEY (order_id, res_id, item_no),
+  CONSTRAINT orders_item_no_fkey FOREIGN KEY (item_no, res_id)
+      REFERENCES restaurant_management.menu (item_no, res_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT orders_order_id_fkey FOREIGN KEY (order_id)
+      REFERENCES restaurant_management.bill (order_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT orders_res_id_fkey FOREIGN KEY (res_id)
+      REFERENCES restaurant_management.restaurant (res_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+
+
+);
+
+
+10. Menu
+
+CREATE TABLE menu (
+    res_id integer NOT NULL,
+    item_no integer NOT NULL,
+    name character varying(20),
+    category_code smallint,
+    price integer,
+CONSTRAINT menu_pkey PRIMARY KEY (res_id, item_no),
+  CONSTRAINT menu_category_code_fkey FOREIGN KEY (category_code)
+      REFERENCES restaurant_management.category (category_code) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE,
+  CONSTRAINT menu_res_id_fkey FOREIGN KEY (res_id)
+      REFERENCES restaurant_management.restaurant (res_id) MATCH SIMPLE
+      ON UPDATE CASCADE ON DELETE CASCADE
+);
